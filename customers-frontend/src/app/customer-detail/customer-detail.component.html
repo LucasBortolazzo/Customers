@@ -1,7 +1,14 @@
-<p>Detalhes do Customer</p>
+<h2>Customer detail component</h2>
+<span>Você esta editando</span>: {{ selected_customer.id }} - {{ selected_customer.name }}
 
-<input type="text" [(ngModel)]="selected_customer.id" readonly> <br> 
+<div class="container">
+<label for="">ID</label>
+<input type="text" id="" [(ngModel)]="selected_customer.id" readonly> <br> 
+<label for="">Nome</label>
 <input type="text" [(ngModel)]="selected_customer.name"> <br> 
+<label for="">Idade</label>
 <input type="text" [(ngModel)]="selected_customer.age"> <br> 
+<label for="">Cidade</label>
 <input type="text" [(ngModel)]="selected_customer.city"> <br> 
-<button (click)="updateCustomer()">Salvar</button>
+<button (click)="updateCustomer()" class="button primary">Salvar</button>
+</div>
