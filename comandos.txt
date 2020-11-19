@@ -5,6 +5,8 @@ cd my-dream-app
 ng serve
 ng generate service api
 ng generate component customer-detail
+npm i sweetalert2
+npm i --save ag-grid-community ag-grid-angular
 
 
 
