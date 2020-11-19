@@ -1,6 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ApiService } from './api.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class CustomerDetailComponent implements OnInit {
 
   //ActivatedRoute permite o acesso a várias coisas, por exemplo o id da URL
   constructor(private route: ActivatedRoute,
-              private api: ApiService) { }
+              private api: ApiService,
+              private router: Router) { }
   
   selected_customer =  {id: '', name: '', age: '', city: ''};
   selected_id;
@@ -43,6 +44,7 @@ export class CustomerDetailComponent implements OnInit {
     this.api.updateCustomer(this.selected_customer).subscribe(
       data => {
         this.selected_customer = data;
+        this.router.navigate(['/'])  
       },
       error => {
         console.log('Aconteceu um erro ao atualizar o registro', error)
