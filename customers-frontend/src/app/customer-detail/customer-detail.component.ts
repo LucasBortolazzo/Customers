@@ -55,4 +55,8 @@ export class CustomerDetailComponent implements OnInit {
       }
     );     
   }
+
+  cancelCustomer(){
+    this.router.navigate(['/'])   
+  }  
 }
