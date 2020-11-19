@@ -34,9 +34,19 @@ export class CustomerDetailComponent implements OnInit {
         this.selected_customer = data;
       },
       error => {
-        console.log('Aconteceu um erro', error)
+        console.log('Aconteceu um erro ao carregar o registro', error)
       }
     ); 
+  }
 
+  updateCustomer(){
+    this.api.updateCustomer(this.selected_customer).subscribe(
+      data => {
+        this.selected_customer = data;
+      },
+      error => {
+        console.log('Aconteceu um erro ao atualizar o registro', error)
+      }
+    );     
   }
 }

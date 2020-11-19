@@ -1,2 +1,7 @@
-<p>customer-detail works!</p>
-Customer {{ selected_customer.name }} carregado
+<p>Detalhes do Customer</p>
+
+<input type="text" [(ngModel)]="selected_customer.id" readonly> <br> 
+<input type="text" [(ngModel)]="selected_customer.name"> <br> 
+<input type="text" [(ngModel)]="selected_customer.age"> <br> 
+<input type="text" [(ngModel)]="selected_customer.city"> <br> 
+<button (click)="updateCustomer()">Salvar</button>

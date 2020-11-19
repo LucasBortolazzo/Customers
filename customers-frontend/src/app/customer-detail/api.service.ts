@@ -14,5 +14,10 @@ export class ApiService {
   getCustomer(id): Observable<any> {
     return this.http.get(this.baseUrl + 'customers/' + id + '/',
     {headers: this.httpHeaders});
+  }  
+  
+  updateCustomer(customer): Observable<any> {
+    return this.http.put(this.baseUrl + 'customers/' + customer.id + '/', customer,
+    {headers: this.httpHeaders});
   }   
 }
