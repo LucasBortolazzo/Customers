@@ -11,13 +11,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCustomers(): Observable<any> {
-    return this.http.get(this.baseUrl + 'customers/',
-    {headers: this.httpHeaders});
-  }
-
   getCustomer(id): Observable<any> {
     return this.http.get(this.baseUrl + 'customers/' + id + '/',
     {headers: this.httpHeaders});
-  }  
+  }   
 }

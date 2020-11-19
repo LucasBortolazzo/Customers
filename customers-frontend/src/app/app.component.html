@@ -1,7 +1,9 @@
 <h1>Customers</h1>
 
 <ul>
-  <li *ngFor="let customer of customers">
+  <li *ngFor="let customer of customers" (click)="customerClicked(customer)">
     {{ customer.id }} 
   </li>  
 </ul>
+
+<router-outlet></router-outlet>

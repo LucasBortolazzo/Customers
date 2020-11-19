@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from './api.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class AppComponent {
 
   customers = [{id: '', name: '', age: ''}];
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService,
+              private router: Router) {
     this.getCustomers();
   }
 
@@ -24,5 +26,9 @@ export class AppComponent {
           console.log('Aconteceu um erro', error)
         }
     );    
+  }
+
+  customerClicked = (customer) => {
+    this.router.navigate(['customer-detail', customer.id])      
   }
 }
