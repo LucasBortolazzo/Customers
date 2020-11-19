@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { ApiService } from './api.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-customer-detail',
@@ -31,6 +32,17 @@ export class CustomerDetailComponent implements OnInit {
     );
   }
 
+  ExibirMensagemSucesso(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Cliente '+ this.selected_customer.name + ' atualizado com sucesso!',
+      showConfirmButton: false,
+      timer: 2500,
+    
+    })
+  }  
+
   loadCustomer(id) {    
     this.api.getCustomer(id).subscribe(
       data => {
@@ -48,7 +60,7 @@ export class CustomerDetailComponent implements OnInit {
         this.selected_customer = data;
         this.router.navigate(['/'])  
         this.componente.getCustomers();
-        
+        this.ExibirMensagemSucesso();
       },
       error => {
         console.log('Aconteceu um erro ao atualizar o registro', error)
