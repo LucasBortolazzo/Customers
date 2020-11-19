@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ApiService } from './api.service';
 
 @Component({
@@ -13,9 +13,12 @@ export class AppComponent {
   customers = [{id: '', name: '', age: ''}];
 
   constructor(private api: ApiService,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
     this.getCustomers();
   }
+
+
 
   getCustomers = () => {
     this.api.getAllCustomers().subscribe(
