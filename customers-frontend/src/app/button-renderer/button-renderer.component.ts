@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button-renderer',
-  template: '<button type="button" (click)="onClick($event)">{{label}}</button>'
+  template: '<button class="button primary" type="button" (click)="onClick($event)">{{label}}</button>'
 })
 
 export class ButtonRendererComponent implements ICellRendererAngularComp {
@@ -27,7 +27,6 @@ export class ButtonRendererComponent implements ICellRendererAngularComp {
 
   onClick($event) {
     if (this.params.onClick instanceof Function) {
-      // put anything into params u want pass into parents component
       const params = {
         event: $event,
         rowData: this.params.node.data

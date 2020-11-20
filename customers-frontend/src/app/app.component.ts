@@ -35,11 +35,11 @@ export class AppComponent {
     { field: 'age', sortable: true, filter: true },
     { field: 'city', sortable: true, filter: true },
     {
-      headerName: 'Button Col 1',
+      headerName: '',
       cellRenderer: 'buttonRenderer',
       cellRendererParams: {
         onClick: this.onBtnClick1.bind(this),
-        label: 'Click 1'
+        label: 'Editar'
       }
     },
 ]; 
