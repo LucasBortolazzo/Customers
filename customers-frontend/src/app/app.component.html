@@ -1,12 +1,16 @@
 <h2>Customers</h2>
 
+<div style="height: 100%;width: 100%;">
 <ag-grid-angular
-    style="width: 1000px; height: 255px;"
+    style="width: 100%; height: 255px;"
     class="ag-theme-alpine"
     [rowData]="rowData"
     [columnDefs]="columnDefs"
     [frameworkComponents]="frameworkComponents"
 >
 </ag-grid-angular>
+</div>
+    <button class="fas fa-forward" style="float: right;margin-top: 5px;min-width: 2.25em;"> </button>&nbsp;
+    <button class="fas fa-backward" style="float: right;margin-top: 5px;min-width: 2.25em;"></button>
 
 <router-outlet></router-outlet>

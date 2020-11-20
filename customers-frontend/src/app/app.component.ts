@@ -13,14 +13,14 @@ export class AppComponent {
   title = 'customers-frontend';
   customers = [{id: '', name: '', age: ''}];
   rowData = [{id: '', name: '', age: ''}];
-  rowDataClicked1 = {};
+  rowDataClicked1 = [{id: '', name: '', age: ''}];
   frameworkComponents: any;
 
   getCustomers = () => {
     this.api.getAllCustomers().subscribe(
         data => {
           this.customers = data
-          this.rowData = data;
+          this.rowData = data.results;
         },
         error => {
           console.log('There was an error loading records', error)
