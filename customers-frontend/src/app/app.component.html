@@ -10,7 +10,7 @@
 >
 </ag-grid-angular>
 </div>
-    <button class="fas fa-forward" style="float: right;margin-top: 5px;min-width: 2.25em;"> </button>&nbsp;
-    <button class="fas fa-backward" style="float: right;margin-top: 5px;min-width: 2.25em;"></button>
+    <button class="fas fa-forward" style="float: right;margin-top: 5px;min-width: 2.25em;"(click)="fetchNext()"> </button>&nbsp;
+    <button class="fas fa-backward" style="float: right;margin-top: 5px;min-width: 2.25em;"(click)="fetchPrevious()"></button>
 
 <router-outlet></router-outlet>
