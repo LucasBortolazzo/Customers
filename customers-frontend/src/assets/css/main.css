@@ -3785,3 +3785,21 @@ input, select, textarea {
 			}
 
 		}
+/* SearchField */
+	#searchField {
+		width: 40%;
+	}
+
+/* NavigateButtons */
+#fetchNextbutton,
+#fetchPreviousbutton {
+	float: right;
+	margin-top: 5px;
+	min-width: 2.25em;
+}	
+
+/* gridAngular */
+#searchField {
+	height: 100%;
+	width: 100%;
+}

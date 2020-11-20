@@ -1,13 +1,13 @@
 <h2>Customers</h2>
 
 <div class="container">
-    <input id="searchField" type="text" style="width: 50%;" value="" placeholder="Search by id, name, age, city"/>
+    <input id="searchField" type="text" value="" placeholder="Search by id, name, age, city"/>
     <button class="fas fa-search" (click)="searchCustomers()" formtarget="_blank">Search</button><br><br>
 </div>
 
-<div style="height: 100%;width: 100%;">
+<div id="grid-angular">
 <ag-grid-angular
-    style="width: 100%; height: 500px;"
+    style="width: 100%; height: 472px;"
     class="ag-theme-alpine"
     [rowData]="rowData"
     [columnDefs]="columnDefs"
@@ -15,7 +15,7 @@
 >
 </ag-grid-angular>
 </div>
-    <button class="fas fa-forward" style="float: right;margin-top: 5px;min-width: 2.25em;"(click)="fetchNext()"> </button>&nbsp;
-    <button class="fas fa-backward" style="float: right;margin-top: 5px;min-width: 2.25em;"(click)="fetchPrevious()"></button>
+    <button id="fetchNextbutton" class="fas fa-forward" (click)="fetchNext()"> </button>&nbsp;
+    <button id="fetchPreviousbutton" class="fas fa-backward" (click)="fetchPrevious()"></button>
 
 <router-outlet></router-outlet>
