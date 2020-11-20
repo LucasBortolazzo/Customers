@@ -38,7 +38,7 @@ export class CustomerDetailComponent implements OnInit {
       icon: 'success',
       title: 'Cliente '+ this.selected_customer.name + ' atualizado com sucesso!',
       showConfirmButton: false,
-      timer: 2500,
+      timer: 1000,
     
     })
   }  

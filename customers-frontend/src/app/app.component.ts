@@ -36,6 +36,7 @@ export class AppComponent {
     { field: 'city', sortable: true, filter: true },
     {
       headerName: '',
+      width: 138,
       cellRenderer: 'buttonRenderer',
       cellRendererParams: {
         onClick: this.onBtnClick1.bind(this),

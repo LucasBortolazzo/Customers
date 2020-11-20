@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button-renderer',
-  template: '<button class="button primary" type="button" (click)="onClick($event)">{{label}}</button>'
+  templateUrl: './button-renderer.component.html',
 })
 
 export class ButtonRendererComponent implements ICellRendererAngularComp {
