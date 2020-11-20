@@ -32,11 +32,11 @@ export class CustomerDetailComponent implements OnInit {
     );
   }
 
-  ExibirMensagemSucesso(){
+  ShowMessageSuccess(){
     Swal.fire({
       position: 'top-end',
       icon: 'success',
-      title: 'Cliente '+ this.selected_customer.name + ' atualizado com sucesso!',
+      title: 'Customer '+ this.selected_customer.name + ' updated successfully!',
       showConfirmButton: false,
       timer: 1000,
     
@@ -49,7 +49,7 @@ export class CustomerDetailComponent implements OnInit {
         this.selected_customer = data;
       },
       error => {
-        console.log('Aconteceu um erro ao carregar o registro', error)
+        console.log('There was an error loading the record', error)
       }
     ); 
   }
@@ -60,10 +60,10 @@ export class CustomerDetailComponent implements OnInit {
         this.selected_customer = data;
         this.router.navigate(['/'])  
         this.componente.getCustomers();
-        this.ExibirMensagemSucesso();
+        this.ShowMessageSuccess();
       },
       error => {
-        console.log('Aconteceu um erro ao atualizar o registro', error)
+        console.log('An error occurred while updating the registry', error)
       }
     );     
   }

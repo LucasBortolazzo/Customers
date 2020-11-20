@@ -1,15 +1,15 @@
 <br>
-<span>Você esta editando o cliente: </span>{{ selected_customer.id }} - {{ selected_customer.name }}
+<span>You are editing the customer: </span>{{ selected_customer.id }} - {{ selected_customer.name }}
 
 <div class="container">
-<label for="">ID</label>
-<input type="text" id="" [(ngModel)]="selected_customer.id" readonly> <br> 
-<label for="">Nome</label>
-<input type="text" [(ngModel)]="selected_customer.name"> <br> 
-<label for="">Idade</label>
-<input type="text" [(ngModel)]="selected_customer.age"> <br> 
-<label for="">Cidade</label>
-<input type="text" [(ngModel)]="selected_customer.city"> <br> 
-<button (click)="updateCustomer()" class="button primary">Salvar</button>&nbsp;
-<button (click)="cancelCustomer()" class="button" >Cancelar</button>
+    <label>ID</label>
+    <input type="text" id="" [(ngModel)]="selected_customer.id" readonly> <br> 
+    <label>Name</label>
+    <input type="text" [(ngModel)]="selected_customer.name"> <br> 
+    <label>Age</label>
+    <input type="text" [(ngModel)]="selected_customer.age"> <br> 
+    <label>City</label>
+    <input type="text" [(ngModel)]="selected_customer.city"> <br> 
+    <button (click)="updateCustomer()" class="button primary">Save</button>&nbsp;
+    <button (click)="cancelCustomer()" class="button" >Cancel</button>
 </div>

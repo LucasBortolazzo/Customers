@@ -21,10 +21,9 @@ export class AppComponent {
         data => {
           this.customers = data
           this.rowData = data;
-          console.log('chamou get')
         },
         error => {
-          console.log('Aconteceu um erro', error)
+          console.log('There was an error loading records', error)
         }
     );    
   }
@@ -39,8 +38,8 @@ export class AppComponent {
       width: 138,
       cellRenderer: 'buttonRenderer',
       cellRendererParams: {
-        onClick: this.onBtnClick1.bind(this),
-        label: 'Editar'
+        onClick: this.onBtnEditClick.bind(this),
+        label: 'Edit'
       }
     },
 ]; 
@@ -54,7 +53,7 @@ export class AppComponent {
     }
   }
 
-  onBtnClick1(e) {
+  onBtnEditClick(e) {
     this.rowDataClicked1 = e.rowData;
   }
 }
