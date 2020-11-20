@@ -1852,6 +1852,7 @@ input, select, textarea {
 		white-space: normal;
 		min-width: 9.25em;
 		margin-right: 5px;
+		margin-top: 2px;
 	}
 
 		input[type="submit"].icon,

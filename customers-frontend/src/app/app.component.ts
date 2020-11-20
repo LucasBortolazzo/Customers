@@ -91,7 +91,12 @@ export class AppComponent {
 
   searchCustomers() {
     var search = ((document.getElementById("searchField") as HTMLInputElement).value);
-    this.currentlUrl = this.baseUrl + '?search='+ search;
+    this.currentlUrl = this.baseUrl;
+
+    if (search != '') {
+      this.currentlUrl = this.baseUrl + '?search='+ search;
+    }
+     
     this.getCustomers();
 }
 }
