@@ -72,12 +72,16 @@ export class AppComponent {
   }
 
   fetchNext() {
-    this.actualUrl = this.page_next;
-    this.getCustomers();
+    if (this.actualUrl != this.page_next) {
+      this.actualUrl = this.page_next;
+      this.getCustomers();
+    }
   }
 
   fetchPrevious() {
-    this.actualUrl = this.page_previous;
-    this.getCustomers();
+    if (this.actualUrl != this.page_previous) {
+      this.actualUrl = this.page_previous;
+      this.getCustomers();
+    }
   }  
 }
