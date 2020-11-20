@@ -12,9 +12,8 @@ import { ButtonRendererComponent } from './button-renderer/button-renderer.compo
 export class AppComponent {
   title = 'customers-frontend';
 
-  baseUrl = 'http://localhost:8000/';
-  customerUrl = '';
-  Url= ''
+  actualUrl = 'http://localhost:8000/customers/';
+
   customers = [{id: '', name: '', age: ''}];
   rowData = [{id: '', name: '', age: ''}];
   rowDataClicked1 = [{id: '', name: '', age: ''}];
@@ -23,7 +22,7 @@ export class AppComponent {
   page_previous='';
 
   getCustomers = () => {
-    this.api.getAllCustomers(this.Url).subscribe(
+    this.api.getAllCustomers(this.actualUrl).subscribe(
         data => {
           this.customers = data
           this.rowData = data.results;
@@ -62,8 +61,6 @@ export class AppComponent {
   constructor(private api: ApiService,
               private router: Router,
               private route: ActivatedRoute) {
-    this.customerUrl = this.baseUrl + 'customers/';
-    this.Url = this.customerUrl;
     this.getCustomers();
     this.frameworkComponents = {
       buttonRenderer: ButtonRendererComponent,
@@ -75,12 +72,12 @@ export class AppComponent {
   }
 
   fetchNext() {
-    this.Url = this.page_next;
+    this.actualUrl = this.page_next;
     this.getCustomers();
   }
 
   fetchPrevious() {
-    this.Url = this.page_previous;
+    this.actualUrl = this.page_previous;
     this.getCustomers();
   }  
 }

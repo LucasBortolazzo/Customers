@@ -12,6 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getCustomer(id): Observable<any> {
+    console.log('chamando customer por ID 2')
     return this.http.get(this.baseUrl + 'customers/' + id + '/',
     {headers: this.httpHeaders});
   }  
