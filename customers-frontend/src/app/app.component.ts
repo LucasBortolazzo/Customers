@@ -12,20 +12,24 @@ import { ButtonRendererComponent } from './button-renderer/button-renderer.compo
 export class AppComponent {
   title = 'customers-frontend';
 
-  actualUrl = 'http://localhost:8000/customers/';
+  baseUrl = 'http://localhost:8000/customers/';
+  currentlUrl = 'http://localhost:8000/customers/';
 
   customers = [{id: '', name: '', age: ''}];
   rowData = [{id: '', name: '', age: ''}];
   rowDataClicked1 = [{id: '', name: '', age: ''}];
+  searchfield = '';
   frameworkComponents: any;
   page_next='';
   page_previous='';
 
   getCustomers = () => {
-    this.api.getAllCustomers(this.actualUrl).subscribe(
+    this.api.getAllCustomers(this.currentlUrl).subscribe(
         data => {
           this.customers = data
           this.rowData = data.results;
+          this.page_next = this.currentlUrl;
+          this.page_previous = this.currentlUrl;
 
           if (data.next) {
             this.page_next = data.next;
@@ -72,16 +76,22 @@ export class AppComponent {
   }
 
   fetchNext() {
-    if (this.actualUrl != this.page_next) {
-      this.actualUrl = this.page_next;
+    if (this.currentlUrl != this.page_next) {
+      this.currentlUrl = this.page_next;
       this.getCustomers();
     }
   }
 
   fetchPrevious() {
-    if (this.actualUrl != this.page_previous) {
-      this.actualUrl = this.page_previous;
+    if (this.currentlUrl != this.page_previous) {
+      this.currentlUrl = this.page_previous;
       this.getCustomers();
     }
   }  
+
+  searchCustomers() {
+    var search = ((document.getElementById("searchField") as HTMLInputElement).value);
+    this.currentlUrl = this.baseUrl + '?search='+ search;
+    this.getCustomers();
+}
 }
