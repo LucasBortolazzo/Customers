@@ -1,40 +1,27 @@
+import { Template } from '@angular/compiler/src/render3/r3_ast';
 import { Component } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ApiService } from './api.service';
+import { ButtonRendererComponent } from './button-renderer/button-renderer.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'customers-frontend';
   customers = [{id: '', name: '', age: ''}];
-
-  columnDefs = [
-    { field: 'id', sortable: true, filter: true },
-    { field: 'name', sortable: true, filter: true },
-    { field: 'age', sortable: true, filter: true },
-    { field: 'city', sortable: true, filter: true }
-];
-
-rowData = [{id: '', name: '', age: ''}];
-  
-  constructor(private api: ApiService,
-              private router: Router,
-              private route: ActivatedRoute) {
-    this.getCustomers();
-  }
-
-  onGridReady(params){
-
-  }
+  rowData = [{id: '', name: '', age: ''}];
+  rowDataClicked1 = {};
+  frameworkComponents: any;
 
   getCustomers = () => {
     this.api.getAllCustomers().subscribe(
         data => {
           this.customers = data
           this.rowData = data;
+          console.log('chamou get')
         },
         error => {
           console.log('Aconteceu um erro', error)
@@ -42,7 +29,31 @@ rowData = [{id: '', name: '', age: ''}];
     );    
   }
 
-  customerClicked = (customer) => {
-    this.router.navigate(['customer-detail', customer.id])      
+ columnDefs = [
+    { field: 'id', sortable: true, filter: true},
+    { field: 'name', sortable: true, filter: true },
+    { field: 'age', sortable: true, filter: true },
+    { field: 'city', sortable: true, filter: true },
+    {
+      headerName: 'Button Col 1',
+      cellRenderer: 'buttonRenderer',
+      cellRendererParams: {
+        onClick: this.onBtnClick1.bind(this),
+        label: 'Click 1'
+      }
+    },
+]; 
+
+  constructor(private api: ApiService,
+              private router: Router,
+              private route: ActivatedRoute) {
+    this.getCustomers();
+    this.frameworkComponents = {
+      buttonRenderer: ButtonRendererComponent,
+    }
+  }
+
+  onBtnClick1(e) {
+    this.rowDataClicked1 = e.rowData;
   }
 }
