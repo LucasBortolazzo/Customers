@@ -3791,15 +3791,15 @@ input, select, textarea {
 	}
 
 /* NavigateButtons */
-#fetchNextbutton,
-#fetchPreviousbutton {
-	float: right;
-	margin-top: 5px;
-	min-width: 2.25em;
-}	
+	#fetchNextbutton,
+	#fetchPreviousbutton {
+		float: right;
+		margin-top: 5px;
+		min-width: 2.25em;
+	}	
 
-/* gridAngular */
-#searchField {
-	height: 100%;
-	width: 100%;
-}
+	/* gridAngular */
+	#grid-angular {
+		height: 100%;
+		width: 100%;
+	}
