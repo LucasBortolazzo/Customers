@@ -12,7 +12,7 @@ Plataforma para gestão de clientes utilizando Angular para o front-end e Django
 6. Grid com ordenação e pesquisa(ag-grid) 
 7. Endpoints cobertos por testes
 
-## Demonstração
+## Demonstration
 
 Front-end: https://customers-frontend-angular.herokuapp.com/
 
